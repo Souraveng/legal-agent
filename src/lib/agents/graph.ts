@@ -11,29 +11,25 @@ const workflow = new StateGraph<LegalAgentState>({
     userIntent: null,
     finalOutput: null,
   }
-});
-
-workflow.addNode("supervisor", supervisorNode);
-workflow.addNode("simplifier", simplifierNode);
-workflow.addNode("qa", qaNode);
-workflow.addNode("drafter", drafterNode);
-
-workflow.addEdge(START, "supervisor");
-
-workflow.addConditionalEdges(
-  "supervisor",
-  (state: LegalAgentState) => state.userIntent,
-  {
-    summarize: "simplifier",
-    qa: "qa",
-    draft: "drafter",
-    compare: END,
-    unknown: END,
-  }
-);
-
-workflow.addEdge("simplifier", END);
-workflow.addEdge("qa", END);
-workflow.addEdge("drafter", END);
+})
+  .addNode("supervisor", supervisorNode)
+  .addNode("simplifier", simplifierNode)
+  .addNode("qa", qaNode)
+  .addNode("drafter", drafterNode)
+  .addEdge(START, "supervisor")
+  .addConditionalEdges(
+    "supervisor",
+    (state: LegalAgentState) => state.userIntent,
+    {
+      summarize: "simplifier",
+      qa: "qa",
+      draft: "drafter",
+      compare: END,
+      unknown: END,
+    }
+  )
+  .addEdge("simplifier", END)
+  .addEdge("qa", END)
+  .addEdge("drafter", END);
 
 export const legalAgentGraph = workflow.compile();
