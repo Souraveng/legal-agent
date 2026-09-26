@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 
 export async function getDashboardData() {
   try {
-    const user = await prisma.user.findFirst({
+    let user = await prisma.user.findFirst({
       include: {
         documents: true,
         chatSessions: true,
@@ -13,12 +13,17 @@ export async function getDashboardData() {
     });
 
     if (!user) {
-      return {
-        user: { id: "guest-user", name: "Advocate / Counsel", email: "guest@bharatlegal.io" },
-        documents: [],
-        mattersCount: 0,
-        exposure: "₹0",
-      };
+      user = await prisma.user.create({
+        data: {
+          name: "Guest User",
+          email: "guest@example.com",
+        },
+        include: {
+          documents: true,
+          chatSessions: true,
+          generatedDrafts: true,
+        },
+      });
     }
 
     return {

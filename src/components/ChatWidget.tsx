@@ -76,10 +76,10 @@ export default function ChatWidget() {
 
       const data = await res.json();
       
-      if (data.finalOutput) {
-        setMessages((prev) => [...prev, { role: "ai", content: data.finalOutput }]);
+      if (data.response) {
+        setMessages((prev) => [...prev, { role: "ai", content: data.response }]);
       } else if (data.messages && data.messages.length > 0) {
-        // Fallback to the last message if finalOutput is missing
+        // Fallback to the last message if response is missing
         const lastMsg = data.messages[data.messages.length - 1];
         setMessages((prev) => [...prev, { role: "ai", content: lastMsg.kwargs?.content || "No response" }]);
       }

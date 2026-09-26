@@ -10,42 +10,42 @@ export default function Sidebar() {
 
   const navItems = [
     {
-      name: "Command Hub",
+      name: "Dashboard",
       path: "/hub",
       icon: "grid_view",
-      badge: "Live",
+      badge: "Home",
       badgeClass: "bg-primary text-[#0d0096] font-bold",
       iconActiveColor: "text-primary",
     },
     {
-      name: "Doc Analyzer",
+      name: "Simplify Documents",
       path: "/doc-analyzer",
       icon: "gavel",
-      badge: "Sec 73/74",
+      badge: "Beta",
       badgeClass: "bg-slate-800 text-slate-400",
       iconActiveColor: "text-primary",
     },
     {
-      name: "Contract Diff",
+      name: "Compare Contracts",
       path: "/contract-diff",
       icon: "difference",
-      badge: "Sec 27",
+      badge: "New",
       badgeClass: "bg-red-950/60 text-red-400 border border-red-800/40",
       iconActiveColor: "text-secondary",
     },
     {
-      name: "Rights Navigator",
+      name: "Understand Options",
       path: "/dispute-navigator",
       icon: "route",
-      badge: "MTA-2021",
+      badge: "Guide",
       badgeClass: "bg-slate-800 text-slate-400",
       iconActiveColor: "text-tertiary",
     },
     {
-      name: "Attorney Prep",
+      name: "Prepare for Lawyer",
       path: "/attorney-prep",
       icon: "description",
-      badge: "Sec 12A",
+      badge: "Checklist",
       badgeClass: "bg-slate-800 text-slate-400",
       iconActiveColor: "text-primary",
     },
@@ -68,13 +68,13 @@ export default function Sidebar() {
             </span>
             <span className="font-label-mono text-[10px] text-tertiary font-semibold tracking-wider uppercase mt-1 flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
-              NyayaDense-70B v4.2
+              Personal Legal Assistant
             </span>
           </div>
         </div>
         <div className="flex flex-col gap-1">
           <div className="text-[11px] font-label-mono uppercase tracking-wider text-slate-400 font-semibold px-2 mb-1">
-            Core Engines
+            Legal Tools
           </div>
           {navItems.map((item) => {
             const isActive = pathname === item.path;
@@ -116,7 +116,7 @@ export default function Sidebar() {
         </div>
         <div className="flex flex-col gap-1">
           <div className="text-[11px] font-label-mono uppercase tracking-wider text-slate-400 font-semibold px-2 mb-1">
-            Statutory Repositories
+            Resources
           </div>
           <Link
             href="#"
@@ -126,10 +126,10 @@ export default function Sidebar() {
               <span className="material-symbols-outlined text-base text-slate-400">
                 menu_book
               </span>
-              <span>Bare Acts & BNS</span>
+              <span>Basic Legal Guides</span>
             </div>
             <span className="text-[10px] font-label-mono text-slate-400">
-              2023
+              Read
             </span>
           </Link>
           <Link
@@ -140,10 +140,10 @@ export default function Sidebar() {
               <span className="material-symbols-outlined text-base text-slate-400">
                 balance
               </span>
-              <span>SC & High Courts</span>
+              <span>Legal Terminology</span>
             </div>
             <span className="text-[10px] font-label-mono text-tertiary">
-              AI Citator
+              Learn
             </span>
           </Link>
           <Link
@@ -154,10 +154,10 @@ export default function Sidebar() {
               <span className="material-symbols-outlined text-base text-slate-400">
                 sync
               </span>
-              <span>eCourts & DIAC</span>
+              <span>Find a Lawyer</span>
             </div>
             <span className="text-[10px] font-label-mono text-secondary">
-              Syncing
+              Search
             </span>
           </Link>
         </div>
@@ -169,7 +169,7 @@ export default function Sidebar() {
               verified_user
             </span>
             <span className="font-label-mono text-[10px] uppercase tracking-wider">
-              AP-South-1 Vault • BCI-36
+              Data Protected • Private
             </span>
           </div>
           <span className="w-2 h-2 rounded-full bg-tertiary"></span>
@@ -177,7 +177,7 @@ export default function Sidebar() {
         <div className="flex items-center justify-between p-2 rounded-lg bg-slate-900/80 border border-slate-800/60">
           <div className="flex items-center gap-2.5 min-w-0">
             <Image
-              alt="Adv. Ananya Roy Profile"
+              alt="User Profile"
               className="w-8 h-8 rounded-full object-cover shrink-0"
               width={32}
               height={32}
@@ -185,10 +185,10 @@ export default function Sidebar() {
             />
             <div className="flex flex-col truncate">
               <span className="text-xs font-semibold text-slate-200 truncate leading-tight">
-                Adv. Ananya Roy
+                Guest User
               </span>
               <span className="text-[10px] text-slate-400 font-label-mono truncate leading-tight">
-                Legal Ops Lead • SC/DL
+                Free Plan
               </span>
             </div>
           </div>

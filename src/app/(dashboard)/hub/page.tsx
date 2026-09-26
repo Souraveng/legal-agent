@@ -27,36 +27,36 @@ export default function IntelligenceHub() {
 <div className="flex items-center gap-space-xs">
 <span className="px-space-xs py-0.5 rounded bg-surface-container-high text-tertiary font-label-mono text-label-mono flex items-center gap-1.5">
 <span className="h-1.5 w-1.5 rounded-full bg-tertiary animate-pulse"></span>
-              BHARAT STATUTORY REASONING ENGINE v4.2
+              NYAYAGEN ASSISTANT v1.0
             </span>
 <span className="px-space-xs py-0.5 rounded bg-surface-container text-outline font-label-mono text-label-mono">
-              AP-SOUTH-1 VAULT
+              SECURE VAULT
             </span>
 </div>
 <h1 className="font-headline-lg text-headline-lg text-on-surface font-display tracking-tight">
-            Welcome back, {data?.user?.name || "Counsel"}
+            Welcome back, {data?.user?.name || "User"}
           </h1>
 <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl leading-relaxed">
-            Bharat Legal Operations &amp; AI Intelligence Hub. Unified statutory comprehension, bilateral contract redlining, dispute trajectory modeling, and advocate briefing dossier engine.
+            Your Personal Legal Hub. Easily understand documents, compare agreements, explore your options, and prepare for legal consultations.
           </p>
 </div>
 
 <div className="flex flex-wrap items-center gap-space-xs shrink-0">
 <button className="flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-badge-label text-badge-label transition-all shadow-sm group" id="btn-quick-audit">
 <span className="material-symbols-outlined text-sm text-secondary group-hover:scale-110 transition-transform">bolt</span>
-<span className="">Quick Contract Audit</span>
+<span className="">Quick Document Review</span>
 </button>
 <button className="flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-badge-label text-badge-label transition-all shadow-sm group" id="btn-model-dispute">
 <span className="material-symbols-outlined text-sm text-tertiary group-hover:scale-110 transition-transform">balance</span>
-<span className="">Model Dispute</span>
+<span className="">Explore Options</span>
 </button>
 <button className="flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-primary hover:bg-primary-fixed text-on-primary font-badge-label text-badge-label transition-all shadow-md group" id="btn-counsel-brief">
 <span className="material-symbols-outlined text-sm group-hover:scale-110 transition-transform">description</span>
-<span className="">Counsel Briefing PDF</span>
+<span className="">Prepare for Lawyer PDF</span>
 </button>
 <button className="flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container-lowest text-outline hover:text-on-surface font-badge-label text-badge-label shadow-sm">
 <span className="material-symbols-outlined text-sm">cloud_upload</span>
-<span className="hidden sm:inline">Upload e-Stamp / Doc</span>
+<span className="hidden sm:inline">Upload Document</span>
 </button>
 </div>
 </div>
@@ -72,7 +72,7 @@ export default function IntelligenceHub() {
 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">{data?.mattersCount || 0} Matters</span>
 <span className="h-1.5 w-1.5 rounded-full bg-tertiary"></span>
 </div>
-<p className="font-label-mono text-label-mono text-outline truncate">Active Tracked Proceedings</p>
+<p className="font-label-mono text-label-mono text-outline truncate">Active Legal Matters</p>
 </div>
 </div>
 
@@ -85,7 +85,7 @@ export default function IntelligenceHub() {
 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">{data?.exposure || "₹0"}</span>
 <span className="font-label-mono text-label-mono text-error">EXPOSURE</span>
 </div>
-<p className="font-label-mono text-label-mono text-outline truncate">Total Financial Exposure</p>
+<p className="font-label-mono text-label-mono text-outline truncate">Total Potential Risk</p>
 </div>
 </div>
 
@@ -97,7 +97,7 @@ export default function IntelligenceHub() {
 <div className="flex items-center gap-1.5">
 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">12 Days Rem.</span>
 </div>
-<p className="font-label-mono text-label-mono text-secondary truncate">Sec 12A Mediation Notice Reply</p>
+<p className="font-label-mono text-label-mono text-secondary truncate">Deadline for Action</p>
 </div>
 </div>
 
@@ -110,7 +110,7 @@ export default function IntelligenceHub() {
 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">99.4%</span>
 <span className="font-label-mono text-label-mono text-tertiary">BENCHMARK</span>
 </div>
-<p className="font-label-mono text-label-mono text-outline truncate">SC &amp; Bare Act Citation Accuracy</p>
+<p className="font-label-mono text-label-mono text-outline truncate">Accuracy of Guidance</p>
 </div>
 </div>
 </div>
@@ -123,10 +123,10 @@ export default function IntelligenceHub() {
 <div className="p-space-md bg-surface-container flex flex-wrap items-center justify-between gap-space-sm">
 <div className="flex items-center gap-space-sm">
 <span className="w-2 h-2 rounded-full bg-error animate-pulse"></span>
-<span className="font-label-mono text-label-mono text-outline font-semibold">{data?.documents?.[0]?.id || "DOC-2024-8849A-IN"}</span>
+<span className="font-label-mono text-label-mono text-outline font-semibold">{data?.documents?.[0]?.id || "DOC-RENTAL-24"}</span>
 <span className="text-outline">/</span>
 <span className="font-body-sm text-body-sm text-on-surface font-medium truncate max-w-xs">
-              {data?.documents?.[0]?.title || "Cloud Master Service Agreement"}
+              {data?.documents?.[0]?.title || "Apartment Rental Agreement"}
             </span>
 </div>
 <div className="flex items-center gap-space-xs">
@@ -140,17 +140,17 @@ export default function IntelligenceHub() {
 <div className="space-y-space-sm">
 <div className="flex items-center justify-between">
 <span className="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">
-                Flagged Clause: 7.2 &amp; 14.1 Unilateral Indemnity &amp; Trapdoor Cap
+                Flagged Clause: Unfair Late Fee and Eviction Terms
               </span>
 <span className="font-label-mono text-label-mono text-primary flex items-center gap-1">
 <span className="material-symbols-outlined text-xs">tune</span>
-                Sec. 73/74 Act 1872
+                Consumer Protection
               </span>
 </div>
 
 <div className="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface-variant text-body-sm font-statute-quote italic relative pl-4 shadow-inner">
 <div className="absolute left-0 top-0 bottom-0 w-1 bg-error rounded-l"></div>
-              “CloudCore’s aggregate liability for all statutory damages, systemic data breaches, or tort under Indian Law shall in no event exceed INR 35,000 or the invoice fee paid in the prior month, notwithstanding Customer’s uncapped indemnity for third-party cyber liabilities...”
+              “The Landlord may evict the Tenant immediately without notice if rent is delayed by one day, and the Tenant must pay a penalty of ₹5000 per day until evicted...”
             </div>
 
 <div className="pt-space-xs flex items-center justify-between">
@@ -168,17 +168,17 @@ export default function IntelligenceHub() {
 <span className="">Plain-Language Synthesis</span>
 </div>
 <p className="leading-relaxed" id="lens-text">
-<strong className="text-error">What it means:</strong> The vendor caps their entire data breach liability to a mere <strong>₹35,000 INR</strong> while demanding totally uncapped financial indemnity from you. Under <strong>Sections 73 &amp; 74 of the Indian Contract Act, 1872</strong>, such one-sided liquidated caps can be declared unconscionable penalties in High Court proceedings.
+<strong className="text-error">What it means:</strong> The landlord is trying to impose an unfair penalty of ₹5000 per day for late rent and claims the right to evict you without notice. Under the law, landlords must give proper notice before eviction, and courts usually do not allow excessively high late fees as they are considered unfair penalties.
               </p>
 </div>
 
 <div className="flex flex-wrap items-center gap-space-xs pt-1">
 <span className="font-label-mono text-label-mono px-2 py-0.5 rounded bg-surface-container text-tertiary flex items-center gap-1">
 <span className="material-symbols-outlined text-xs">link</span>
-                ONGC v. Saw Pipes Ltd. (2003) 5 SCC 705
+                Unfair Penalty Law
               </span>
 <span className="font-label-mono text-label-mono px-2 py-0.5 rounded bg-surface-container text-outline">
-                Doctrine of Unilateral Imbalance
+                Protection against unfair terms
               </span>
 </div>
 </div>
@@ -186,11 +186,11 @@ export default function IntelligenceHub() {
 <div className="pt-space-sm flex flex-wrap items-center justify-between gap-space-xs">
 <div className="flex items-center gap-1 text-outline hover:text-primary cursor-pointer font-label-mono text-label-mono">
 <span className="material-symbols-outlined text-sm">chat_bubble_outline</span>
-<span className="">Ask NyayaGen: “Can this trigger Sec 12A mediation?”</span>
+<span className="">Ask NyayaGen: “Can they legally evict me this quickly?”</span>
 </div>
 <button className="px-space-md py-1.5 rounded-lg bg-secondary text-on-secondary font-badge-label text-badge-label hover:bg-secondary-fixed transition-all flex items-center gap-1 shadow-sm">
 <span className="material-symbols-outlined text-sm">edit_document</span>
-              Generate Redline Counter-Clause
+              Generate Fairer Clause
             </button>
 </div>
 </div>
@@ -201,14 +201,14 @@ export default function IntelligenceHub() {
 <div className="p-space-md bg-surface-container flex flex-wrap items-center justify-between gap-space-sm">
 <div className="flex items-center gap-space-sm">
 <span className="w-2 h-2 rounded-full bg-secondary"></span>
-<span className="font-label-mono text-label-mono text-outline font-semibold">DIFF-INBOUND-09</span>
+<span className="font-label-mono text-label-mono text-outline font-semibold">DIFF-LEASE-09</span>
 <span className="text-outline">/</span>
 <span className="font-body-sm text-body-sm text-on-surface font-medium truncate">
-              Standard Baseline vs Vendor Redline (14 Deviations)
+              Standard Lease vs Your New Lease (3 Changes)
             </span>
 </div>
 <span className="font-label-mono text-label-mono px-2 py-0.5 rounded bg-surface-container-highest text-secondary font-bold">
-            2 Fatal Statutory Conflicts
+            2 Major Legal Concerns
           </span>
 </div>
 
@@ -219,7 +219,7 @@ export default function IntelligenceHub() {
 <div className="flex items-center justify-between">
 <span className="font-badge-label text-badge-label text-on-surface font-bold flex items-center gap-1.5">
 <span className="material-symbols-outlined text-error text-base">gpp_bad</span>
-                  Clause 8.1: Pan-India Post-Term Non-Compete (24 Months)
+                  Clause 8.1: Unfair Security Deposit Withholding
                 </span>
 <span className="font-label-mono text-label-mono text-error font-bold px-1.5 py-0.5 rounded bg-error-container">
                   VOID AB INITIO
@@ -228,17 +228,17 @@ export default function IntelligenceHub() {
 <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-xs text-code-inline font-code-inline text-on-surface-variant text-xs pt-1">
 <div className="p-2 rounded bg-surface-container-lowest">
 <span className="text-outline block text-label-mono mb-1">Baseline Standard (Firm Draft):</span>
-                  “Standard non-solicitation of dedicated key engineers for 6 months restricted to Bangalore jurisdiction.”
+                  “Landlord will return the security deposit within 30 days of moving out, minus reasonable deductions for actual damage.”
                 </div>
 <div className="p-2 rounded bg-error-container/20 text-error">
 <span className="text-error block text-label-mono mb-1">Vendor Inbound Mutation:</span>
-                  “Shall not provide competitive software services across the Republic of India for 2 years post expiration.”
+                  “Landlord may keep the entire security deposit for normal wear and tear or repainting.”
                 </div>
 </div>
 <div className="p-space-xs rounded bg-surface-container-lowest flex items-start gap-2">
 <span className="material-symbols-outlined text-secondary text-sm shrink-0 mt-0.5">verified</span>
 <p className="font-body-sm text-body-sm text-on-surface-variant">
-<strong className="text-secondary">Statutory Clash:</strong> Section 27, Indian Contract Act 1872 rejects post-contract restraint. Supreme Court in <em className="text-on-surface">Percept D’Mark v. Zaheer Khan (2006) 4 SCC 227</em> strictly held reasonableness test inapplicable to Indian restraint of trade covenants.
+<strong className="text-secondary">Statutory Clash:</strong> Generally, the law does not allow landlords to deduct from the security deposit for normal wear and tear. You are only responsible for actual damage beyond normal use.
                 </p>
 </div>
 </div>
@@ -247,25 +247,25 @@ export default function IntelligenceHub() {
 <div className="flex items-center gap-2 min-w-0">
 <span className="material-symbols-outlined text-error text-sm shrink-0">timer_off</span>
 <div className="truncate">
-<span className="font-body-sm text-body-sm font-semibold text-on-surface block truncate">Payment Term Shifted to Net 75 Days</span>
-<span className="font-label-mono text-label-mono text-outline">MSMED Act 2006 (§15 &amp; §16 Violation: Max allowed 45 Days with 3x RBI compound interest)</span>
+<span className="font-body-sm text-body-sm font-semibold text-on-surface block truncate">Notice Period Changed to 60 Days</span>
+<span className="font-label-mono text-label-mono text-outline">Standard notice period is usually 30 days.</span>
 </div>
 </div>
 <button className="shrink-0 px-2 py-1 rounded bg-surface-container hover:bg-surface-bright text-tertiary font-label-mono text-label-mono">
-                Auto-Restore 45D
+                Suggest 30 Days
               </button>
 </div>
 </div>
 
 <div className="pt-space-sm flex flex-wrap items-center justify-between gap-space-xs">
-<span className="font-label-mono text-label-mono text-outline">Track Changes Engine: BNS / ICA 1872 Linked</span>
+<span className="font-label-mono text-label-mono text-outline">Document Comparison Engine</span>
 <div className="flex items-center gap-space-xs">
 <button className="px-space-sm py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-badge-label text-badge-label transition-colors">
-                Export .DOCX Redline
+                Export Changes
               </button>
 <button className="px-space-md py-1.5 rounded-lg bg-primary text-on-primary font-badge-label text-badge-label hover:bg-primary-fixed transition-all flex items-center gap-1 shadow-sm">
 <span className="material-symbols-outlined text-sm">check_circle</span>
-                Apply SC Precedent Strikeout
+                Apply Fair Standard Terms
               </button>
 </div>
 </div>
@@ -277,10 +277,10 @@ export default function IntelligenceHub() {
 <div className="p-space-md bg-surface-container flex flex-wrap items-center justify-between gap-space-sm">
 <div className="flex items-center gap-space-sm">
 <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
-<span className="font-label-mono text-label-mono text-outline font-semibold">MATTER #TEN-BLR-2024</span>
+<span className="font-label-mono text-label-mono text-outline font-semibold">ISSUE #DEP-BLR-2024</span>
 <span className="text-outline">/</span>
 <span className="font-body-sm text-body-sm text-on-surface font-medium truncate">
-              Koramangala Commercial Lease • Security Deposit Withholding
+              Koramangala Apartment Lease • Security Deposit Not Returned
             </span>
 </div>
 <span className="font-label-mono text-label-mono px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary font-bold">
@@ -312,7 +312,7 @@ export default function IntelligenceHub() {
 
 <div className="space-y-space-xs pt-1">
 <span className="font-badge-label text-badge-label text-on-surface-variant uppercase tracking-wider block">
-                Recommended Procedural Pathways (Karnataka Jurisdiction):
+                Recommended Next Steps:
               </span>
 
 <div className="p-space-sm rounded-lg bg-surface-container-high/90 hover:bg-surface-bright transition-colors cursor-pointer group">
@@ -320,13 +320,13 @@ export default function IntelligenceHub() {
 <div className="flex items-center gap-2">
 <span className="w-5 h-5 rounded-full bg-tertiary/20 text-tertiary font-label-mono text-label-mono flex items-center justify-center font-bold">A</span>
 <span className="font-body-sm text-body-sm font-semibold text-on-surface">
-                      Legal Demand Notice via India Post Speed Post + AD (§106 TPA)
+                      Send a Formal Legal Notice via Speed Post
                     </span>
 </div>
 <span className="font-label-mono text-label-mono text-tertiary font-bold">82% Recovery Rate</span>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-1 pl-7">
-                  Mandatory 15-day pre-action demand with official postal tracking barcode integration. Evidentiary proof under Section 27, General Clauses Act.
+                  Send a formal demand letter giving them 15 days to return the deposit before you take further action.
                 </p>
 </div>
 
@@ -335,13 +335,13 @@ export default function IntelligenceHub() {
 <div className="flex items-center gap-2">
 <span className="w-5 h-5 rounded-full bg-secondary/20 text-secondary font-label-mono text-label-mono flex items-center justify-center font-bold">B</span>
 <span className="font-body-sm text-body-sm font-semibold text-on-surface">
-                      e-Daakhil Online Filing (DCDRC Bengaluru Urban)
+                      File a Consumer Complaint Online
                     </span>
 </div>
 <span className="font-label-mono text-label-mono text-secondary font-bold">CPA 2019 Deficiency</span>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-1 pl-7">
-                  Jurisdiction up to ₹50 Lakhs. Paperless petition submission via NIC e-Daakhil gateway.
+                  You can easily file a complaint online through the consumer court portal without needing to visit in person.
                 </p>
 </div>
 
@@ -350,7 +350,7 @@ export default function IntelligenceHub() {
 <div className="flex items-center gap-2">
 <span className="w-5 h-5 rounded-full bg-outline/20 text-outline font-label-mono text-label-mono flex items-center justify-center font-bold">C</span>
 <span className="font-body-sm text-body-sm font-semibold text-on-surface">
-                      Model Tenancy Act 2021 / Rent Authority Application (§13)
+                      File a complaint with the Rent Authority
                     </span>
 </div>
 <span className="font-label-mono text-label-mono text-outline">Fast-track Adjudication</span>
@@ -377,10 +377,10 @@ export default function IntelligenceHub() {
 <div className="p-space-md bg-surface-container flex flex-wrap items-center justify-between gap-space-sm">
 <div className="flex items-center gap-space-sm">
 <span className="w-2 h-2 rounded-full bg-primary"></span>
-<span className="font-label-mono text-label-mono text-outline font-semibold">DOSSIER #BKN-9921</span>
+<span className="font-label-mono text-label-mono text-outline font-semibold">LAWYER-PREP #9921</span>
 <span className="text-outline">/</span>
 <span className="font-body-sm text-body-sm text-on-surface font-medium truncate">
-              Senior Advocate Brief • Gurugram DLF CyberCity CAM Controversy
+              Preparation for Lawyer • Gurugram Apartment Maintenance Dispute
             </span>
 </div>
 <span className="font-label-mono text-label-mono px-2 py-0.5 rounded bg-surface-container-highest text-primary font-bold">
@@ -396,10 +396,10 @@ export default function IntelligenceHub() {
 <span className="material-symbols-outlined text-primary text-xl">savings</span>
 <div>
 <div className="font-badge-label text-badge-label text-primary-fixed font-bold">
-                    2.5 Senior Counsel Billable Hours Conserved
+                    Time & Money Saved on Lawyer Fees
                   </div>
 <div className="font-label-mono text-label-mono text-on-surface-variant">
-                    Est. ₹35,000 INR saved in preliminary fact-finding conferences
+                    Estimated ₹10,000 saved by preparing questions and facts in advance
                   </div>
 </div>
 </div>
@@ -416,7 +416,7 @@ export default function IntelligenceHub() {
 <div className="flex items-start gap-2">
 <span className="font-label-mono text-label-mono text-primary font-bold mt-0.5">Q1:</span>
 <p className="font-body-sm text-body-sm text-on-surface">
-                    Can we seek immediate <strong>Section 9 interim relief</strong> (under Arbitration &amp; Conciliation Act 1996) at Delhi High Court before exhausting Section 12A Commercial Courts mediation?
+                    What is the quickest way to get my maintenance charges refunded? Should we send a legal notice first or go straight to consumer court?
                   </p>
 </div>
 <div className="pl-6 font-label-mono text-label-mono text-outline">
@@ -427,7 +427,7 @@ export default function IntelligenceHub() {
 <div className="flex items-start gap-2">
 <span className="font-label-mono text-label-mono text-primary font-bold mt-0.5">Q2:</span>
 <p className="font-body-sm text-body-sm text-on-surface">
-                    Escrow deposit strategy at DIAC (Delhi International Arbitration Centre) to halt unilateral utility and power disconnection.
+                    Can the association legally cut off my electricity and water because I am disputing the extra maintenance charges?
                   </p>
 </div>
 </div>
@@ -473,10 +473,10 @@ export default function IntelligenceHub() {
 </div>
 <div>
 <span className="font-badge-label text-badge-label text-on-surface font-semibold block">
-            National Precedent Graph &amp; High Court Concordance
+            Legal Rules Database
           </span>
 <span className="font-label-mono text-label-mono text-outline">
-            Continuous indexing across Delhi, Bombay, Karnataka &amp; Allahabad High Courts
+            Continuously updated with the latest consumer and rental rules
           </span>
 </div>
 </div>
@@ -503,7 +503,7 @@ export default function IntelligenceHub() {
 <span className="material-symbols-outlined text-2xl animate-pulse">auto_awesome</span>
 </div>
 <div className="flex-1 relative">
-<input className="w-full bg-surface-container-lowest text-on-surface placeholder:text-outline text-body-md font-body-md px-space-md py-2.5 rounded-lg outline-none focus:ring-1 focus:ring-primary transition-all" id="copilot-input" placeholder="Ask NyayaGen across your 4 active matters (e.g., 'Draft notice under Sec 138 NI Act' or 'Check stamp duty in Maharashtra')..." type="text" />
+<input className="w-full bg-surface-container-lowest text-on-surface placeholder:text-outline text-body-md font-body-md px-space-md py-2.5 rounded-lg outline-none focus:ring-1 focus:ring-primary transition-all" id="copilot-input" placeholder="Ask NyayaGen for help (e.g., 'Draft a letter to my landlord asking for my deposit back' or 'What are my rights if my flight was cancelled?')..." type="text" />
 </div>
 <div className="flex items-center gap-space-xs shrink-0 justify-end">
 <span className="hidden md:flex font-label-mono text-label-mono px-2 py-1 rounded bg-surface-container text-outline items-center gap-1">
