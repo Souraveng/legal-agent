@@ -48,10 +48,22 @@ export async function invokeAgentWithHistory(userId: string, newMessage: string,
     },
   });
 
+  // Fetch document context if available
+  let extractedText;
+  if (session.documentId) {
+    const doc = await prisma.legalDocument.findUnique({
+      where: { id: session.documentId }
+    });
+    if (doc && doc.extractedText) {
+      extractedText = doc.extractedText;
+    }
+  }
+
   // 5. Invoke the LangGraph agent
   const initialState: Partial<LegalAgentState> = {
     messages: history,
     currentDocumentId: session.documentId || undefined,
+    extractedText,
   };
 
   const finalState = await legalAgentGraph.invoke(initialState) as Partial<LegalAgentState> & { finalOutput?: string };

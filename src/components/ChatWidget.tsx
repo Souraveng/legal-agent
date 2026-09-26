@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
 import { getChatHistory, getDashboardData } from "@/app/actions";
 
 export default function ChatWidget() {
+  const searchParams = useSearchParams();
+  const documentId = searchParams.get("id");
   const [userId, setUserId] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [sessions, setSessions] = useState<{ id: string; title?: string; messages?: any[] }[]>([]);
@@ -71,6 +74,7 @@ export default function ChatWidget() {
           userId,
           message: userMessage.content,
           sessionId: currentSessionId,
+          documentId,
         }),
       });
 

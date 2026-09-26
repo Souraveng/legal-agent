@@ -19,8 +19,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NyayaGen.ai - Bharat Legal Operations & AI Intelligence Hub",
-  description: "High-performance statutory intelligence, bilingual document discovery, and litigation workflow copilot engineered for Indian Advocates.",
+  title: "NyayaGen - Your Personal Legal Assistant",
+  description: "Accessible legal information and assistance. Understand documents, compare contracts, and navigate legal rights with confidence.",
 };
 
 export default function RootLayout({
@@ -36,7 +36,7 @@ export default function RootLayout({
     >
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
           rel="stylesheet"
         />
         <link
