@@ -2,14 +2,14 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
-import { getChatHistory, getDashboardData } from "@/app/actions";
+import { getChatHistory, getDashboardData, getChatMessages } from "@/app/actions";
 
 export default function ChatWidget() {
   const searchParams = useSearchParams();
   const documentId = searchParams.get("id");
   const [userId, setUserId] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [sessions, setSessions] = useState<{ id: string; title?: string; messages?: any[] }[]>([]);
+  const [sessions, setSessions] = useState<{ id: string; title?: string }[]>([]);
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
@@ -31,7 +31,8 @@ export default function ChatWidget() {
     setSessions(history);
     if (history.length > 0 && !currentSessionId) {
       setCurrentSessionId(history[0].id);
-      setMessages(history[0].messages || []);
+      const msgs = await getChatMessages(history[0].id, userId);
+      setMessages(msgs || []);
     }
   }, [userId, currentSessionId]);
 
@@ -48,9 +49,11 @@ export default function ChatWidget() {
     }
   }, [messages]);
 
-  const selectSession = (session: { id: string; messages?: any[] }) => {
+  const selectSession = async (session: { id: string }) => {
+    if (!userId) return;
     setCurrentSessionId(session.id);
-    setMessages(session.messages || []);
+    const msgs = await getChatMessages(session.id, userId);
+    setMessages(msgs || []);
   };
 
   const startNewChat = () => {

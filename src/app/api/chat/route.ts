@@ -9,6 +9,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing userId or message" }, { status: 400 });
     }
 
+    if (typeof message !== "string" || message.length > 5000) {
+      return NextResponse.json({ error: "Message too long or invalid format" }, { status: 400 });
+    }
+
     const result = await invokeAgentWithHistory(userId, message, sessionId, documentId);
 
     return NextResponse.json(result);
