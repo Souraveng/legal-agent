@@ -14,7 +14,7 @@ export async function getDashboardData() {
 
     if (!user) {
       return {
-        user: { name: "Advocate / Counsel", email: "guest@bharatlegal.io" },
+        user: { id: "guest-user", name: "Advocate / Counsel", email: "guest@bharatlegal.io" },
         documents: [],
         mattersCount: 0,
         exposure: "₹0",
@@ -31,10 +31,27 @@ export async function getDashboardData() {
     console.error("Database connection failed:", error);
     // Fallback if DB is not running so the UI doesn't crash completely
     return {
-      user: { name: "Advocate (Offline Mode)", email: "offline@bharatlegal.io" },
+      user: { id: "offline-user", name: "Advocate (Offline Mode)", email: "offline@bharatlegal.io" },
       documents: [],
       mattersCount: 0,
-      exposure: "₹0",
     };
+  }
+}
+
+export async function getChatHistory(userId: string) {
+  try {
+    const sessions = await prisma.chatSession.findMany({
+      where: { userId },
+      include: {
+        messages: {
+          orderBy: { createdAt: "asc" },
+        },
+      },
+      orderBy: { updatedAt: "desc" },
+    });
+    return sessions;
+  } catch (error) {
+    console.error("Error fetching chat history:", error);
+    return [];
   }
 }

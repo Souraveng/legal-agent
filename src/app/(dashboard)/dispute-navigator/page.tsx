@@ -1,11 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { getDashboardData } from "@/app/actions";
 
 export default function DisputeNavigator() {
   const [activeTab, setActiveTab] = useState("analyzer");
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    getDashboardData().then(setData);
+  }, []);
 
   return (
     <>
@@ -18,7 +24,7 @@ export default function DisputeNavigator() {
 <div className="flex flex-col space-y-1.5">
 <div className="flex flex-wrap items-center gap-space-xs">
 <span className="font-label-mono text-label-mono px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-semibold tracking-wider uppercase">
-            Matter #TEN-BLR-2024
+            Matter #{data?.documents?.[0]?.id?.substring(0, 8) || "TEN-BLR-2024"}
           </span>
 <span className="font-label-mono text-label-mono px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-semibold">
             Unlawful Deposit Retention
@@ -110,7 +116,7 @@ export default function DisputeNavigator() {
 <span className="font-body-sm text-body-sm text-on-surface-variant">Principal Withheld (Advance)</span>
 <span className="font-label-mono text-label-mono text-outline">10-Month Rental Advance Deposit</span>
 </div>
-<span className="font-headline-sm text-headline-sm text-on-surface font-bold">₹2,40,000</span>
+<span className="font-headline-sm text-headline-sm text-on-surface font-bold">₹{data?.exposure?.total?.toLocaleString('en-IN') || "2,40,000"}</span>
 </div>
 
 <div className="p-3.5 rounded-lg bg-surface-container space-y-2.5">
@@ -136,7 +142,7 @@ export default function DisputeNavigator() {
 <div className="p-4 rounded-xl bg-gradient-to-br from-surface-container-high to-surface-container shadow-inner">
 <div className="flex justify-between items-baseline mb-1">
 <span className="font-body-md text-body-md font-semibold text-on-surface">Total Liquidated Claim</span>
-<span className="font-headline-md text-headline-md text-primary font-extrabold tracking-tight">₹2,83,200</span>
+<span className="font-headline-md text-headline-md text-primary font-extrabold tracking-tight">₹{data?.exposure?.total ? (data.exposure.total + 43200).toLocaleString('en-IN') : "2,83,200"}</span>
 </div>
 <div className="space-y-1 font-label-mono text-label-mono text-outline text-xs">
 <div className="flex justify-between">
@@ -391,8 +397,8 @@ export default function DisputeNavigator() {
 </div>
 <div className="font-body-sm text-body-sm text-on-surface-variant flex flex-col space-y-1">
 <div><strong className="text-on-surface">TO:</strong> Sri. Raghavendra Rao (Lessor / Landlord), #402, 5th Main, 7th Cross, Koramangala 4th Block, Bengaluru - 560034.</div>
-<div><strong className="text-on-surface">FROM:</strong> Smt. Ananya Roy, Advocate, Chamber #14, High Court Buildings, Bengaluru - 560001 (On behalf of Tenant: Client ID #4928).</div>
-<div><strong className="text-on-surface">SUBJECT:</strong> Demand for immediate refund of ₹2,40,000/- withheld unlawfully towards Security Deposit along with 18% penal interest.</div>
+<div><strong className="text-on-surface">FROM:</strong> Smt. Ananya Roy, Advocate, Chamber #14, High Court Buildings, Bengaluru - 560001 (On behalf of Tenant: {data?.user?.name || "Client ID #4928"}).</div>
+<div><strong className="text-on-surface">SUBJECT:</strong> Demand for immediate refund of ₹{data?.exposure?.total?.toLocaleString('en-IN') || "2,40,000"}/- withheld unlawfully towards Security Deposit along with 18% penal interest.</div>
 </div>
 <div className="font-statute-quote text-body-md text-on-surface-variant space-y-3 pt-2">
 <p>

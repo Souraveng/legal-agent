@@ -1,11 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { getDashboardData } from "@/app/actions";
 
 export default function AttorneyPrep() {
   const [activeTab, setActiveTab] = useState("analyzer");
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    getDashboardData().then(setData);
+  }, []);
 
   return (
     <>
@@ -47,7 +53,7 @@ export default function AttorneyPrep() {
 <div className="space-y-2 max-w-3xl">
 <div className="flex items-center gap-3">
 <span className="font-label-mono text-label-mono px-2 py-0.5 rounded bg-primary text-on-primary font-bold tracking-wider">
-            DOSSIER #BKN-9921
+            DOSSIER #{data?.documents?.[0]?.id?.substring(0, 8) || "BKN-9921"}
           </span>
 <span className="font-label-mono text-label-mono text-outline">UPDATED 14 MINS AGO BY AI SENIOR CITATOR</span>
 </div>
@@ -57,11 +63,11 @@ export default function AttorneyPrep() {
 <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-1 font-body-sm text-body-sm text-on-surface-variant">
 <div className="flex items-center gap-1.5">
 <span className="material-symbols-outlined text-base text-outline">apartment</span>
-<span>Counterparty: <strong className="text-on-surface font-medium">DLF CyberCity Commercial Holdings Ltd (Gurugram, HR)</strong></span>
+<span>Counterparty: <strong className="text-on-surface font-medium">{data?.user?.name || "DLF CyberCity Commercial Holdings Ltd"}</strong></span>
 </div>
 <div className="flex items-center gap-1.5">
 <span className="material-symbols-outlined text-base text-error">gavel</span>
-<span>Disputed Amount: <strong className="text-error font-medium">₹36,50,000 INR</strong></span>
+<span>Disputed Amount: <strong className="text-error font-medium">₹{data?.exposure?.total?.toLocaleString('en-IN') || "36,50,000"} INR</strong></span>
 </div>
 <div className="flex items-center gap-1.5">
 <span className="material-symbols-outlined text-base text-tertiary">balance</span>

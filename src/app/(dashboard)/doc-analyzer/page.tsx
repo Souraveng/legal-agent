@@ -1,11 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { getDashboardData } from "@/app/actions";
 
 export default function DocAnalyzer() {
   const [activeTab, setActiveTab] = useState("analyzer");
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    getDashboardData().then(setData);
+  }, []);
 
   return (
     <>
@@ -18,7 +24,7 @@ export default function DocAnalyzer() {
 <span className="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-mono text-label-mono uppercase tracking-wider font-semibold">
             Matter Reference
           </span>
-<span className="font-label-mono text-label-mono text-outline font-medium">DOC-2024-8849A-IN</span>
+<span className="font-label-mono text-label-mono text-outline font-medium">{data?.documents?.[0]?.id || "DOC-2024-8849A-IN"}</span>
 <span className="text-outline-variant">•</span>
 <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-tertiary font-label-mono text-label-mono font-medium">
 <span className="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
@@ -26,10 +32,10 @@ export default function DocAnalyzer() {
           </span>
 </div>
 <h1 className="font-headline-lg text-headline-lg text-on-surface tracking-tight truncate">
-          Master Cloud Services Agreement
+          {data?.documents?.[0]?.title || "Master Cloud Services Agreement"}
         </h1>
 <p className="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
-<span>Parties: <strong className="text-on-surface font-medium">Tata Tech Ltd</strong> (Client) vs <strong className="text-on-surface font-medium">CloudCore India Pvt Ltd</strong> (Vendor)</span>
+<span>Parties: <strong className="text-on-surface font-medium">{data?.user?.name || "Tata Tech Ltd"}</strong> (Client) vs <strong className="text-on-surface font-medium">CloudCore India Pvt Ltd</strong> (Vendor)</span>
 </p>
 </div>
 
