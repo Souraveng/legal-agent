@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Header() {
   return (
     <header className="h-16 w-full flex-shrink-0 border-b border-slate-800/80 bg-[#0c101b]/95 backdrop-blur-md px-6 flex items-center justify-between gap-4 z-30 select-none">
@@ -30,14 +32,16 @@ export default function Header() {
           <span className="material-symbols-outlined text-sm">add</span>
           <span>New Matter Intake</span>
         </button>
-        <button className="relative p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 transition-colors">
+        <button aria-label="Notifications" className="relative p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 transition-colors">
           <span className="material-symbols-outlined text-xl">notifications</span>
           <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-500 ring-2 ring-slate-900"></span>
         </button>
         <div className="flex items-center gap-2 pl-2 border-l border-slate-800">
-          <img
+          <Image
             alt="User avatar"
             className="w-7 h-7 rounded-full object-cover"
+            width={28}
+            height={28}
             src="https://lh3.googleusercontent.com/aida/AEtjO1Vk9Slk-TbsSwTL1THey3LSQhKL7D7hgBfTJM_U_C6Wb2nL7dWjEN-Xp4eqlcFZqwFDR4aiVFhhqwEHkUGE8Sg25V9PiDmVQLVtzTXNkzfNR6_E6ylr_RLnPSnRtLPlQLzfZJWiMNx9gU0oo3miJlpAU6VB4IGYmpx5dkpdf-EhNxYn3lwua0dWLJVn23S3SBeV08gSYwy3fIQArDxgdixAkJKQHJPwePCGez42rHhrlm14piud_voIZQU"
           />
         </div>

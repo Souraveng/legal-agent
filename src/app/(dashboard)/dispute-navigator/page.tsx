@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { getDashboardData } from "@/app/actions";
 
@@ -178,7 +179,7 @@ export default function DisputeNavigator() {
 <span className="font-body-sm text-body-sm font-semibold text-on-surface truncate">Move-In Joint Handover Checklist</span>
 <span className="font-label-mono text-label-mono text-outline truncate">Signed by Lessor • Dated 01 Nov 2023 • SHA-256 Valid</span>
 </div>
-<button className="text-outline hover:text-primary transition-colors">
+<button aria-label="View Move-In Checklist" className="text-outline hover:text-primary transition-colors">
 <span className="material-symbols-outlined text-base">visibility</span>
 </button>
 </div>
@@ -189,7 +190,7 @@ export default function DisputeNavigator() {
 <span className="font-body-sm text-body-sm font-semibold text-on-surface truncate">4K Move-Out Key-Return Video</span>
 <span className="font-label-mono text-label-mono text-outline truncate">Geo-tagged Koramangala • Timestamp 14 Oct 2024</span>
 </div>
-<button className="text-outline hover:text-primary transition-colors">
+<button aria-label="View Move-Out Video" className="text-outline hover:text-primary transition-colors">
 <span className="material-symbols-outlined text-base">visibility</span>
 </button>
 </div>
@@ -200,7 +201,7 @@ export default function DisputeNavigator() {
 <span className="font-body-sm text-body-sm font-semibold text-on-surface truncate">BESCOM Final Meter NOC &amp; Receipt</span>
 <span className="font-label-mono text-label-mono text-outline truncate">Zero Balance Cleared • Bill #BLR-99820-2024</span>
 </div>
-<button className="text-outline hover:text-primary transition-colors">
+<button aria-label="View Receipt" className="text-outline hover:text-primary transition-colors">
 <span className="material-symbols-outlined text-base">visibility</span>
 </button>
 </div>
@@ -383,7 +384,7 @@ export default function DisputeNavigator() {
 
 <div className="rounded-lg bg-surface-container-lowest p-6 shadow-inner relative overflow-hidden font-statute-quote text-statute-quote text-on-surface leading-relaxed">
 <div className="absolute right-6 top-6 opacity-10 pointer-events-none">
-<img className="w-36 h-36 object-contain" data-alt="High-resolution Indian judicial emblem watermark, gold and slate tones with Ashoka Dharma Chakra, subtle and semi-transparent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDRtsa4Xn2bC4nGuDNX6ekkt75km0TBuW8yyrgLwfoKVfqG0Y_cD_sFptS8wgV94nIht3l5kPTYFxzWbrPmhsORtbBGBwON155ZQG0EaKmpH-iffevg9pHsuMkhEU3wPRWDrx1I9fRc3e5RvNLg1Unc8VNqD_jqu1VyN9dcfbGzpMWjci4TmD6CISs0qZTPSJ7SmF1rErpTBffmgv8HDauji1X74uI1a5CdAcf4MZuFCx5WFrk-o_K"/>
+<Image width={144} height={144} className="w-36 h-36 object-contain" alt="High-resolution Indian judicial emblem watermark, gold and slate tones with Ashoka Dharma Chakra, subtle and semi-transparent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDRtsa4Xn2bC4nGuDNX6ekkt75km0TBuW8yyrgLwfoKVfqG0Y_cD_sFptS8wgV94nIht3l5kPTYFxzWbrPmhsORtbBGBwON155ZQG0EaKmpH-iffevg9pHsuMkhEU3wPRWDrx1I9fRc3e5RvNLg1Unc8VNqD_jqu1VyN9dcfbGzpMWjci4TmD6CISs0qZTPSJ7SmF1rErpTBffmgv8HDauji1X74uI1a5CdAcf4MZuFCx5WFrk-o_K"/>
 </div>
 <div className="space-y-4 max-w-4xl relative z-10">
 

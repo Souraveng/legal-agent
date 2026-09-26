@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { getDashboardData } from "@/app/actions";
 
@@ -392,7 +393,7 @@ export default function AttorneyPrep() {
 <span className="font-label-mono text-label-mono px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-medium">Brief Confirmed</span>
 </div>
 <div className="flex items-center gap-3 py-2">
-<img className="w-12 h-12 rounded-full object-cover shadow-md" data-alt="Portrait photo of a distinguished Indian senior advocate in white collar band and black judicial blazer against dark law library shelves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFdLOwZ6coPUUPcySXV_5vQErDdKcx0VMw6wqXuE9O6kNu7QpZAxCLljebKGuVVJWl8Yl2zmjXmTfxdIADwF_qeN49M74SDqOfPUm7nay3_qugNsZeGPUgl7RVPHQlGjt2EnbSw3MwXOkXWSagMOjgu_NwgqWY9unhT-NTlGnyzF1PF1sQRzPBe-fIPcnZLcP4a0r4d2PhEAMKGPnWtM0U425vFdg1_5VRoOpWBGkC_MqzrHszCQIt"/>
+<Image width={48} height={48} className="w-12 h-12 rounded-full object-cover shadow-md" alt="Portrait photo of a distinguished Indian senior advocate in white collar band and black judicial blazer against dark law library shelves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFdLOwZ6coPUUPcySXV_5vQErDdKcx0VMw6wqXuE9O6kNu7QpZAxCLljebKGuVVJWl8Yl2zmjXmTfxdIADwF_qeN49M74SDqOfPUm7nay3_qugNsZeGPUgl7RVPHQlGjt2EnbSw3MwXOkXWSagMOjgu_NwgqWY9unhT-NTlGnyzF1PF1sQRzPBe-fIPcnZLcP4a0r4d2PhEAMKGPnWtM0U425vFdg1_5VRoOpWBGkC_MqzrHszCQIt"/>
 <div>
 <h3 className="font-headline-sm text-headline-sm text-on-surface text-base">Senior Adv. Vikramaditya Sen</h3>
 <p className="font-body-sm text-body-sm text-outline">Bar Council of Delhi • D/492/1998</p>

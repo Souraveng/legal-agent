@@ -21,7 +21,7 @@ export async function invokeAgentWithHistory(userId: string, newMessage: string,
     }
 
     // 2. Convert Prisma messages to LangChain messages
-    history = session.messages.map((m: any) =>
+    history = session.messages.map((m: {role: string, content: string}) =>
       m.role === "user" ? new HumanMessage(m.content) : new AIMessage(m.content)
     );
   } else {
@@ -54,7 +54,7 @@ export async function invokeAgentWithHistory(userId: string, newMessage: string,
     currentDocumentId: session.documentId || undefined,
   };
 
-  const finalState = await legalAgentGraph.invoke(initialState) as any;
+  const finalState = await legalAgentGraph.invoke(initialState) as Partial<LegalAgentState> & { finalOutput?: string };
   
   // 6. Extract the AI's final response
   // We assume the final output is either in `finalOutput` or the last message in `messages`

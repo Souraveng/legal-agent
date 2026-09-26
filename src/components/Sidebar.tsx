@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export default function Sidebar() {
@@ -54,9 +55,11 @@ export default function Sidebar() {
     <aside className="w-64 flex-shrink-0 bg-[#0c101b] border-r border-slate-800/80 flex flex-col justify-between p-4 h-full z-40 select-none">
       <div className="flex flex-col gap-5 overflow-y-auto">
         <div className="flex items-center gap-3 px-1">
-          <img
+          <Image
             alt="NyayaGen AI Logo"
             className="h-8 w-auto object-contain"
+            width={32}
+            height={32}
             src="https://lh3.googleusercontent.com/aida/AEtjO1Wb2XyOPUEPDQxc3mTjz0X17fjGiN7BSPZKnL7xjfnLJV5ik440Rmm5GxKc_UZ4cS0DCxjvY8MiCZwEOwu83_e_veQa5IsRNVzls3JcpkZAHV8WDU4rdwpLmFWpgel4MWaSdiwylg4zhJzPJ1C1Pf3-ocmHKzgLo1Hq_kZe0Cr8Cq0KS-ou0OVBdgITBfwU07Z3PvAQ65n5SsfUjFVUGCURJXi81m8fY9Y62M6_5lwMTVLc10l41wfcEqU"
           />
           <div className="flex flex-col">
@@ -173,9 +176,11 @@ export default function Sidebar() {
         </div>
         <div className="flex items-center justify-between p-2 rounded-lg bg-slate-900/80 border border-slate-800/60">
           <div className="flex items-center gap-2.5 min-w-0">
-            <img
-              alt="Adv. Ananya Roy"
+            <Image
+              alt="Adv. Ananya Roy Profile"
               className="w-8 h-8 rounded-full object-cover shrink-0"
+              width={32}
+              height={32}
               src="https://lh3.googleusercontent.com/aida/AEtjO1Vk9Slk-TbsSwTL1THey3LSQhKL7D7hgBfTJM_U_C6Wb2nL7dWjEN-Xp4eqlcFZqwFDR4aiVFhhqwEHkUGE8Sg25V9PiDmVQLVtzTXNkzfNR6_E6ylr_RLnPSnRtLPlQLzfZJWiMNx9gU0oo3miJlpAU6VB4IGYmpx5dkpdf-EhNxYn3lwua0dWLJVn23S3SBeV08gSYwy3fIQArDxgdixAkJKQHJPwePCGez42rHhrlm14piud_voIZQU"
             />
             <div className="flex flex-col truncate">
@@ -187,7 +192,7 @@ export default function Sidebar() {
               </span>
             </div>
           </div>
-          <button className="text-slate-400 hover:text-white p-1">
+          <button aria-label="Settings" className="text-slate-400 hover:text-white p-1">
             <span className="material-symbols-outlined text-base">
               settings
             </span>

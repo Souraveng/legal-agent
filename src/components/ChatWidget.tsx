@@ -1,40 +1,28 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { getChatHistory, getDashboardData } from "@/app/actions";
 
 export default function ChatWidget() {
   const [userId, setUserId] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [sessions, setSessions] = useState<any[]>([]);
+  const [sessions, setSessions] = useState<{ id: string; title?: string; messages?: any[] }[]>([]);
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState<any[]>([]);
+  const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     getDashboardData().then((res) => {
-      const user = res?.user as any;
+      const user = res?.user as { id: string } | undefined;
       if (user?.id) {
         setUserId(user.id);
       }
     });
   }, []);
 
-  useEffect(() => {
-    if (userId && isOpen) {
-      loadHistory();
-    }
-  }, [userId, isOpen]);
-
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
-  }, [messages]);
-
-  const loadHistory = async () => {
+  const loadHistory = useCallback(async () => {
     if (!userId) return;
     const history = await getChatHistory(userId);
     setSessions(history);
@@ -42,9 +30,22 @@ export default function ChatWidget() {
       setCurrentSessionId(history[0].id);
       setMessages(history[0].messages || []);
     }
-  };
+  }, [userId, currentSessionId]);
 
-  const selectSession = (session: any) => {
+  useEffect(() => {
+    if (userId && isOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      loadHistory();
+    }
+  }, [userId, isOpen, loadHistory]);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  const selectSession = (session: { id: string; messages?: any[] }) => {
     setCurrentSessionId(session.id);
     setMessages(session.messages || []);
   };
@@ -97,6 +98,7 @@ export default function ChatWidget() {
   if (!isOpen) {
     return (
       <button
+        aria-label="Open Chat"
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:bg-primary-fixed transition-all z-50"
       >
@@ -111,7 +113,7 @@ export default function ChatWidget() {
       <div className="w-1/3 bg-surface-container-lowest border-r border-surface-container-highest flex flex-col h-full">
         <div className="p-3 border-b border-surface-container-highest flex justify-between items-center bg-surface-container">
           <span className="font-headline-sm text-sm font-bold">History</span>
-          <button onClick={startNewChat} className="text-primary hover:bg-surface-container-high p-1 rounded transition-colors">
+          <button aria-label="Start New Chat" onClick={startNewChat} className="text-primary hover:bg-surface-container-high p-1 rounded transition-colors">
             <span className="material-symbols-outlined text-sm">add</span>
           </button>
         </div>
@@ -137,7 +139,7 @@ export default function ChatWidget() {
       <div className="w-2/3 flex flex-col h-full bg-[#0a0e17]">
         <div className="p-3 border-b border-surface-container-highest flex justify-between items-center bg-surface-container">
           <span className="font-headline-sm text-sm font-bold">NyayaGen Copilot</span>
-          <button onClick={() => setIsOpen(false)} className="text-on-surface-variant hover:text-on-surface">
+          <button aria-label="Close Chat" onClick={() => setIsOpen(false)} className="text-on-surface-variant hover:text-on-surface">
             <span className="material-symbols-outlined text-sm">close</span>
           </button>
         </div>
@@ -171,6 +173,7 @@ export default function ChatWidget() {
           <div className="flex items-center gap-2">
             <input
               type="text"
+              aria-label="Message AI"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
@@ -179,6 +182,7 @@ export default function ChatWidget() {
               disabled={loading || !userId}
             />
             <button
+              aria-label="Send Message"
               onClick={sendMessage}
               disabled={loading || !userId || !input.trim()}
               className="bg-primary text-on-primary p-2 rounded-lg hover:bg-primary-fixed disabled:opacity-50 transition-colors"
