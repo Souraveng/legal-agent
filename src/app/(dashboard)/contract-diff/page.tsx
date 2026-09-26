@@ -1,11 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { getDashboardData } from "@/app/actions";
 
 export default function ContractDiff() {
   const [activeTab, setActiveTab] = useState("analyzer");
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    getDashboardData().then(setData);
+  }, []);
 
   return (
     <>
@@ -17,9 +23,9 @@ export default function ContractDiff() {
 <div className="space-y-1.5">
 <div className="flex flex-wrap items-center gap-space-sm">
 <span className="font-label-mono text-label-mono px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold tracking-wider uppercase">High Statutory Conflict</span>
-<span className="font-label-mono text-label-mono text-outline">DIFF-INBOUND-09</span>
+<span className="font-label-mono text-label-mono text-outline">{data?.documents?.[0]?.id || "DIFF-INBOUND-09"}</span>
 <span className="text-outline-variant">•</span>
-<span className="font-label-mono text-label-mono text-primary font-medium">Standard Master Baseline v3.1 ⟷ Apex Tech Redline Rev-2</span>
+<span className="font-label-mono text-label-mono text-primary font-medium">{data?.documents?.[0]?.title || "Standard Master Baseline v3.1 ⟷ Apex Tech Redline Rev-2"}</span>
 </div>
 <h1 className="font-headline-lg text-headline-lg text-on-surface">Contract Diff &amp; Statutory Conflict Engine</h1>
 <p className="font-body-md text-body-md text-on-surface-variant max-w-3xl">
@@ -380,11 +386,11 @@ export default function ContractDiff() {
 <div className="rounded-xl bg-surface-container-low p-space-md shadow-md space-y-3">
 <div className="flex items-center gap-space-sm">
 <div className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold">
-            AT
+            {data?.user?.name ? data.user.name.substring(0, 2).toUpperCase() : "AT"}
           </div>
 <div className="flex flex-col min-w-0">
-<span className="font-headline-sm text-headline-sm font-semibold text-on-surface text-sm truncate">Apex Tech Enterprises LLP</span>
-<span className="font-label-mono text-label-mono text-outline truncate">CIN/LLPIN: AAE-9482 • Bengaluru, KA</span>
+<span className="font-headline-sm text-headline-sm font-semibold text-on-surface text-sm truncate">{data?.user?.name || "Apex Tech Enterprises LLP"}</span>
+<span className="font-label-mono text-label-mono text-outline truncate">{data?.user?.email || "CIN/LLPIN: AAE-9482 • Bengaluru, KA"}</span>
 </div>
 </div>
 <div className="pt-2 flex items-center justify-between font-label-mono text-label-mono text-outline">

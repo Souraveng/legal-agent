@@ -1,11 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { getDashboardData } from "@/app/actions";
 
 export default function IntelligenceHub() {
-  const [activeTab, setActiveTab] = useState("analyzer");
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    getDashboardData().then(setData);
+  }, []);
 
   return (
     <>
@@ -29,10 +34,10 @@ export default function IntelligenceHub() {
             </span>
 </div>
 <h1 className="font-headline-lg text-headline-lg text-on-surface font-display tracking-tight">
-            Bharat Legal Operations &amp; AI Intelligence Hub
+            Welcome back, {data?.user?.name || "Counsel"}
           </h1>
 <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl leading-relaxed">
-            Unified statutory comprehension, bilateral contract redlining, dispute trajectory modeling, and advocate briefing dossier engine mapped strictly to the Supreme Court of India, BNS 2023, and High Court precedents.
+            Bharat Legal Operations &amp; AI Intelligence Hub. Unified statutory comprehension, bilateral contract redlining, dispute trajectory modeling, and advocate briefing dossier engine.
           </p>
 </div>
 
@@ -64,7 +69,7 @@ export default function IntelligenceHub() {
 </div>
 <div className="min-w-0">
 <div className="flex items-center gap-1.5">
-<span className="font-headline-sm text-headline-sm text-on-surface font-bold">4 Matters</span>
+<span className="font-headline-sm text-headline-sm text-on-surface font-bold">{data?.mattersCount || 0} Matters</span>
 <span className="h-1.5 w-1.5 rounded-full bg-tertiary"></span>
 </div>
 <p className="font-label-mono text-label-mono text-outline truncate">Active Tracked Proceedings</p>
@@ -77,7 +82,7 @@ export default function IntelligenceHub() {
 </div>
 <div className="min-w-0">
 <div className="flex items-center gap-1.5">
-<span className="font-headline-sm text-headline-sm text-on-surface font-bold">₹42,85,000</span>
+<span className="font-headline-sm text-headline-sm text-on-surface font-bold">{data?.exposure || "₹0"}</span>
 <span className="font-label-mono text-label-mono text-error">EXPOSURE</span>
 </div>
 <p className="font-label-mono text-label-mono text-outline truncate">Total Financial Exposure</p>
@@ -118,15 +123,15 @@ export default function IntelligenceHub() {
 <div className="p-space-md bg-surface-container flex flex-wrap items-center justify-between gap-space-sm">
 <div className="flex items-center gap-space-sm">
 <span className="w-2 h-2 rounded-full bg-error animate-pulse"></span>
-<span className="font-label-mono text-label-mono text-outline font-semibold">DOC-2024-8849A-IN</span>
+<span className="font-label-mono text-label-mono text-outline font-semibold">{data?.documents?.[0]?.id || "DOC-2024-8849A-IN"}</span>
 <span className="text-outline">/</span>
 <span className="font-body-sm text-body-sm text-on-surface font-medium truncate max-w-xs">
-              Cloud Master Service Agreement (Tata Tech / CloudCore)
+              {data?.documents?.[0]?.title || "Cloud Master Service Agreement"}
             </span>
 </div>
 <div className="flex items-center gap-space-xs">
 <span className="font-label-mono text-label-mono px-2 py-0.5 rounded bg-error-container text-error font-bold">
-              Risk: 68/100 • Severe
+              Status: {data?.documents?.[0]?.status || "Severe"}
             </span>
 </div>
 </div>
